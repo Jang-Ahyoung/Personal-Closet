@@ -1,37 +1,45 @@
 import React, { useState } from 'react'
 import styles from './Clothes.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faExpandAlt } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import BackArrowHeader from '../backArrowHeader/BackArrowHeader';
 
 function Clothes(props) {
-    const categoty = props.location.state.categoty;
-    const categotyArray = ["All", "Top", "Pants", "Dress", "Acc", "Pants", "Dress", "Acc"];
+    const [categoty, setCategoty] = useState(props.location.state.categoty);
+    const categotyArray = ["All", "Top", "Pants", "Dress", "Acc"];
+    const imgArray = ["/cloth/knit.jpg", "/acc.jpg"]
     const [searchText, setSearchText] = useState(null);
 
     return (
         <div className={styles.container}>
-            <header>header ^^ </header>
+            <BackArrowHeader />
             <div className={styles.inputContainer}>
                 <FontAwesomeIcon className={styles.inputIcon} icon={faSearch} />
                 <input className={styles.input} type="text" placeholder="검색어를 입력해주세요 . . ." onChange={(e) => setSearchText(e.target.value)}></input>
             </div>
-            <div className={styles.categoryContainer}>
-                {/* {categotyArray.map((kind) => {
-                    <button className={kind === categoty ? `${styles.categoryBtn} ${styles.seletBtn}` : `${styles.categoryBtn}`}>dsjsdkjfh</button>
-                })} */}
-                <button className={`${styles.categoryBtn} ${styles.seletBtn}`}>All</button>
-                <button className={styles.categoryBtn}>Top</button>
-                <button className={styles.categoryBtn}>Pants</button>
-                <button className={styles.categoryBtn}>Dress</button>
-                <button className={styles.categoryBtn}>Acc</button>
-                <button className={styles.categoryBtn}>Pants</button>
-                <button className={styles.categoryBtn}>Dress</button>
-                <button className={styles.categoryBtn}>Acc</button>
+            <div className={styles.categoryContainer} >
+                {categotyArray.map((kind, index) => {
+                    return <button key={index} onClick={() => setCategoty(categotyArray[index])} className={kind === categoty ? `${styles.categoryBtn} ${styles.seletBtn}` : `${styles.categoryBtn}`} >{kind}</button>
+                })}
+            </div>
+
+            <img className={styles.coverImg} src={`img${categoty != 'Acc' ? imgArray[0] : imgArray[1]}`}></img>
+            <p className={styles.coverText}>{categoty == 'All' ? categoty : `My cuty ${categoty}`}</p>
+
+            <div className={styles.filterContainer}>
+                <div className={styles.filter}>
+                    <p className={styles.filterSelect}>New</p>
+                    <p className={styles.filterText}>HighPrice</p>
+                    <p className={styles.filterText}>Favor</p>
+                </div>
+                <Link to="/categoryExpand">
+                    <FontAwesomeIcon icon={faExpandAlt} className={styles.expandIcon} />
+                </Link>
             </div>
 
             <div className={styles.produtContainer}>
-                <Link to="/clothDetail" style={{ textDecoration: "none" }}>
+                <Link to="/test" style={{ textDecoration: "none" }}>
                     <div className={styles.produt}>
                         <img className={styles.produtPhoto} alt="produtImg" src="img/cloth/white_shirt.png"></img>
                         <div className={styles.produtDetail}>
@@ -46,72 +54,8 @@ function Clothes(props) {
                         </div>
                     </div>
                 </Link>
-
-                <Link to="/clothDetail" style={{ textDecoration: "none" }}>
-                    <div className={styles.produt}>
-                        <img className={styles.produtPhoto} src="img/cloth/round_shirt.png" alt="produtImg"></img>
-                        <div className={styles.produtDetail}>
-                            <div className={styles.detailTop}>
-                                <p className={styles.name}>White T-shirt</p>
-                                <span className={styles.brandName}>Adidas</span>
-                            </div>
-                            <div className={styles.detailBottom}>
-                                <span className={styles.tags}>#운동 #편안함</span>
-                                <div className={styles.lastDate}>최근 착용 : 2021/02/10</div>
-                            </div>
-                        </div>
-                    </div>
-                </Link>
-
-                <Link to="/clothDetail" style={{ textDecoration: "none" }}>
-                    <div className={styles.produt}>
-                        <img className={styles.produtPhoto} src="img/cloth/blackShirt.png" alt="produtImg"></img>
-                        <div className={styles.produtDetail}>
-                            <div className={styles.detailTop}>
-                                <p className={styles.name}>Black shirt</p>
-                                <span className={styles.brandName}>Adidas</span>
-                            </div>
-                            <div className={styles.detailBottom}>
-                                <span className={styles.tags}>#운동 #편안함</span>
-                                <div className={styles.lastDate}>최근 착용 : 2021/02/10</div>
-                            </div>
-                        </div>
-                    </div>
-                </Link>
-
-                <Link to="/clothDetail" style={{ textDecoration: "none" }}>
-                    <div className={styles.produt}>
-                        <img className={styles.produtPhoto} src="img/cloth/blackShirt.png" alt="produtImg"></img>
-                        <div className={styles.produtDetail}>
-                            <div className={styles.detailTop}>
-                                <p className={styles.name}>Black shirt</p>
-                                <span className={styles.brandName}>Adidas</span>
-                            </div>
-                            <div className={styles.detailBottom}>
-                                <span className={styles.tags}>#운동 #편안함</span>
-                                <div className={styles.lastDate}>최근 착용 : 2021/02/10</div>
-                            </div>
-                        </div>
-                    </div>
-                </Link>
-
-                <Link to="/clothDetail" style={{ textDecoration: "none" }}>
-                    <div className={styles.produt}>
-                        <img className={styles.produtPhoto} src="img/cloth/blackShirt.png" alt="produtImg"></img>
-                        <div className={styles.produtDetail}>
-                            <div className={styles.detailTop}>
-                                <p className={styles.name}>Black shirt</p>
-                                <span className={styles.brandName}></span>
-                            </div>
-                            <div className={styles.detailBottom}>
-                                <span className={styles.tags}></span>
-                                <div className={styles.lastDate}>최근 착용 : 2021/02/10</div>
-                            </div>
-                        </div>
-                    </div>
-                </Link>
             </div>
-        </div>
+        </div >
     )
 }
 
