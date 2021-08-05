@@ -1,0 +1,26 @@
+.inputContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 5px 20px;
+  border-radius: 18px;
+  background-color: white;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+}
+
+.inputIcon {
+  color: gray;
+  transition: 0.5s;
+}
+
+.inputContainer:hover .inputIcon {
+  color: rgb(187, 201, 245);
+  transform: scale(120%);
+}
