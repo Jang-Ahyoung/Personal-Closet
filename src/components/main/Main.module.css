@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap");
+
+.container {
+  display: flex;
+  overflow: hidden;
+}
+
+.logo {
+  position: absolute;
+  left: 50px;
+  z-index: 100;
+  font-size: 100px;
+  color: rgb(156, 119, 48);
+  font-family: "MonteCarlo", cursive;
+}
+
+.imgLeft,
+.imgRight {
+  width: 65%;
+  height: 100vh;
+  filter: grayscale(100%);
+  transition: 0.7s;
+  cursor: pointer;
+}
+
+.imgRight {
+  width: 35%;
+}
+
+.imgLeft:hover,
+.imgRight:hover,
+.img:hover {
+  filter: none;
+  transform: scale(110%);
+}
+
+.img {
+  display: none;
+  width: 50%;
+  filter: grayscale(100%);
+  transition: 0.7s;
+  cursor: pointer;
+}
+
+.textLeft {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+.textRight {
+  position: absolute;
+  right: 23px;
+  bottom: 20px;
+  color: wheat;
+}
+.text {
+  position: relative;
+  bottom: 4px;
+  right: -3px;
+}
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .imgLeft {
+    width: 20vw;
+    height: 30%;
+  }
+  .img {
+    display: flex;
+  }
+  .imgRight {
+    width: 10vw;
+    height: 30%;
+  }
+  .logo {
+    flex-direction: row;
+  }
+  .bottomLogo {
+    transform: translate(300px, 50%);
+  }
+  .topLogo,
+  .bottomLogo {
+    text-shadow: 10px 2px 2px gray;
+  }
+}
