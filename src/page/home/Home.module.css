@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap");
+
+.container {
+  display: flex;
+  flex-direction: column;
+  display: block;
+}
+
+.title {
+  margin: 8vh;
+  text-align: center;
+  font-size: 35px;
+}
+.imgContainer {
+  display: flex;
+  margin: 40px 10px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  font-size: 30px;
+  align-items: center;
+}
+
+.img,
+.swiperImg {
+  width: 180px;
+  height: 270px;
+  cursor: pointer;
+}
+
+.img {
+  margin: 0 10px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.img:hover,
+.swiperImg:hover {
+  transform: scale(120%);
+}
+.imgText {
+  position: relative;
+  left: 26px;
+  bottom: 38px;
+  color: white;
+  font-size: 21px;
+}
+.swiperImg {
+  margin: 0;
+}
+.icon {
+  display: absolute;
+  right: 0;
+}
+
+.swiper {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.category {
+  margin: 10px 0;
+  font-size: 28px;
+  font-style: bold;
+  letter-spacing: 1px;
+}
+
+.swiperImg:hover > p {
+  font-size: 400px;
+}
+
+@media (max-width: 768px) {
+  .title {
+    margin: 10%;
+  }
+  .category {
+    transform: translate(10vw, -12vh);
+    color: whitesmoke;
+  }
+}
