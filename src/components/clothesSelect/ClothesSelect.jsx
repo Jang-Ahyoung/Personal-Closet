@@ -36,7 +36,7 @@ function ClothesSelect() {
                                     </div>
                                     <div className={styles.productSection}>
                                         <p className={styles.productLabel}>Brand</p>
-                                        <p className={styles.productInfo}>{data.brandName || 'No'}</p>
+                                        <p className={styles.productInfo}>{data.brandName || '-'}</p>
                                     </div>
                                     <div className={styles.productSection}>
                                         <p className={styles.productLabel}>선호도</p>
