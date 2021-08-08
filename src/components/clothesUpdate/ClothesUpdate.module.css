@@ -1,0 +1,143 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  padding: 20px;
+  padding-bottom: 10px;
+}
+.headerTitle {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.headerDesc {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 1.2px;
+  margin-bottom: 10px;
+}
+.title,
+.price {
+  width: 250px;
+  border: none;
+  outline: none;
+  padding: 10px 3px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  border-bottom: 2px solid black;
+}
+
+.title:hover {
+  border-bottom: 2px solid salmon;
+}
+.price {
+  text-align: center;
+  max-width: 120px;
+  font-size: 15px;
+}
+
+.middle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category > span {
+  color: rgb(141, 199, 41);
+}
+.category > select {
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.option {
+  padding: 40px;
+}
+.price {
+  font-size: 25px;
+  font-weight: 700;
+}
+.bottom {
+  display: flex;
+}
+
+.ImageInput {
+  cursor: pointer;
+  margin: 0 30px;
+  border-radius: 15px;
+  width: calc(100% - 80px);
+  height: calc(100vh - 200px);
+  object-fit: cover;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.ImageIcon {
+  color: #3287cdbb;
+  margin: 130px calc(50% - 40px);
+  font-size: 100px;
+}
+.Prodectinput {
+  background-color: turquoise;
+  width: 100%;
+  height: 100vh;
+  display: none;
+}
+
+.ProductDesc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.inputSize {
+  text-align: center;
+  height: 30px;
+  width: 40px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  border-bottom: 2px solid black;
+  font-weight: 800;
+}
+.size {
+  font-weight: 800;
+  background-color: rgb(240, 235, 235);
+  border-radius: 50%;
+  padding: 8px;
+  margin-bottom: 20px;
+}
+
+.choose {
+  color: white;
+  background: black;
+}
+.colorContainer {
+  margin-top: 40px;
+}
+
+.description {
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.colorinput {
+  border: none;
+  width: 30px;
+  height: 30px;
+}
+.submit {
+  margin-top: 40px;
+  border: none;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-weight: bold;
+  color: rgb(250, 234, 204);
+  background-color: black;
+  cursor: pointer;
+}
