@@ -19,25 +19,39 @@
 }
 .title,
 .price {
-  width: 250px;
-  border: none;
-  outline: none;
+  display: flex;
+  width: 280px;
   padding: 10px 3px;
-  font-size: 20px;
-  font-weight: 600;
   margin-bottom: 10px;
   border-bottom: 2px solid black;
 }
 
-.title:hover {
-  border-bottom: 2px solid salmon;
+.title:hover,
+.price:hover {
+  border-bottom: 2px solid pink;
 }
 .price {
-  text-align: center;
   max-width: 120px;
-  font-size: 15px;
+}
+.titleContext {
+  font-size: 18px;
+  font-weight: 600;
+  max-width: 250px;
+  letter-spacing: 1px;
 }
 
+.priceIcon {
+  font-size: 20px;
+}
+.priceContext {
+  text-align: center;
+  max-width: 100px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.priceContext::placeholder {
+  color: black;
+}
 .middle {
   display: flex;
   justify-content: space-between;
@@ -56,19 +70,16 @@
 .option {
   padding: 40px;
 }
-.price {
-  font-size: 25px;
-  font-weight: 700;
-}
 .bottom {
   display: flex;
+  padding-bottom: 20px;
 }
 
 .ImageInput {
   cursor: pointer;
-  margin: 0 30px;
+  margin: 0 25px 0 24px;
   border-radius: 15px;
-  width: calc(100% - 80px);
+  width: 50vw;
   height: calc(100vh - 200px);
   object-fit: cover;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -79,24 +90,44 @@
   font-size: 100px;
 }
 .Prodectinput {
-  background-color: turquoise;
   width: 100%;
   height: 100vh;
   display: none;
 }
 
 .ProductDesc {
+  width: 50vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  padding: 20px;
+  padding-right: 20px;
 }
 
+.section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.inputLine {
+  display: flex;
+  justify-content: space-between;
+}
+.inputBox {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+.inputBox > p {
+  width: 80px;
+}
+
+.date {
+  flex-direction: column;
+}
 .inputSize {
   text-align: center;
   height: 30px;
-  width: 40px;
+  width: 140px;
   border: none;
   outline: none;
   font-size: 15px;
@@ -116,12 +147,15 @@
   background: black;
 }
 .colorContainer {
-  margin-top: 40px;
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .description {
-  margin-bottom: 10px;
   letter-spacing: 2px;
+  padding-right: 10px;
 }
 
 .colorinput {
@@ -130,7 +164,7 @@
   height: 30px;
 }
 .submit {
-  margin-top: 40px;
+  /* margin-top: 40px; */
   border: none;
   outline: none;
   width: 50px;
@@ -140,4 +174,93 @@
   color: rgb(250, 234, 204);
   background-color: black;
   cursor: pointer;
+}
+
+.rightSide {
+  width: 100%;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 3px solid burlywood;
+  max-width: 120px;
+}
+.inputContainer {
+  display: flex;
+  align-items: center;
+  border: 1px solid gray;
+
+  /* box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px; */
+  border-radius: 15px;
+  padding: 10px;
+  font-size: 14px;
+  margin: 10px 0;
+  width: 48%;
+}
+
+.inputIcon {
+  font-size: 20px;
+  margin: 0 15px 0 10px;
+}
+
+.inputTitle {
+  color: gray;
+}
+.inputSection {
+  width: 80%;
+}
+.inputSection:hover .inputTitle {
+  font-size: 10px;
+}
+.inputSection:hover .inputContext {
+  font-size: 13.5px;
+}
+.inputContext {
+  font-weight: bold;
+  background-color: transparent;
+  padding-top: 5px;
+  max-width: 90%;
+}
+.storeIcon {
+  color: burlywood;
+}
+.sizeIcon {
+  color: darkkhaki;
+}
+.tshirtIcon {
+  color: rgb(224, 224, 252);
+}
+.cartIcon {
+  color: skyblue;
+}
+.moneyIcon {
+  color: #61be909f;
+}
+.nameIcon {
+  color: cornflowerblue;
+}
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .rightSide {
+    width: 100%;
+  }
+  .inputLine {
+    display: flex;
+    flex-direction: column;
+  }
+  .inputBox {
+    display: flex;
+    justify-content: center;
+  }
+  .inputBox > p {
+    width: 50%;
+  }
+  .inputContainer {
+    width: 100%;
+  }
 }
