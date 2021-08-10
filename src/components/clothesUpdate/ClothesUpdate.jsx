@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './ClothesUpdate.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faHeart, faShoppingCart, faUserAstronaut, faStore, faTshirt, faUserTag } from "@fortawesome/free-solid-svg-icons";
@@ -10,13 +10,29 @@ function ClothesUpdate() {
     const [category, setCategory] = useState(null);
     const [price, setPrice] = useState(null);
     const [color, setColor] = useState(null);
-    const [fabric, setFabric] = useState(null);
+    const [material, setMaterial] = useState(null);
     const [size, setSize] = useState(null);
     const [brand, setBrand] = useState(null);
     const [date, setDate] = useState(null);
     const [photo, setPhoto] = useState(null);
 
     const inputRef = useRef();
+    let len = price && price.length;
+    let num = 0;
+    if (price && len > 4) {
+        let len = price.length;
+        if (price.substr(len - 4) == '0000') {
+            num = price.substr(0, len - 4) + '만원';
+        }
+        else {
+            if (price.substr(len - 3) == '000') {
+                num = price.substr(0, len - 4) + '만' + price.substr(len - 4, 1) + '천원';
+            }
+            else num = (price.substr(0, len - 4) + '만' + price.substr(len - 4) + '원');
+        }
+    }
+    else num = price;
+
     const handleSubmit = (e) => {
         e.preventDefault();
     }
@@ -54,7 +70,10 @@ function ClothesUpdate() {
                         </div>
                         <div className={styles.price}>
                             <FontAwesomeIcon icon={faHeart} className={`${styles.priceIcon} ${styles.nameIcon}`} />
-                            <input className={styles.priceContext} type="number" placeholder="가격" onChange={(e) => setPrice(e.target.value)}></input>
+                            <div>
+                                <p className={styles.priceformated}>{num}</p>
+                                <input className={styles.priceContext} type="number" placeholder="가격" onChange={(e) => setPrice(e.target.value)}></input>
+                            </div>
                         </div>
                     </section>
                 </div>
@@ -69,15 +88,15 @@ function ClothesUpdate() {
                                 <div className={styles.inputContainer}>
                                     <FontAwesomeIcon icon={faTshirt} className={`${styles.inputIcon} ${styles.tshirtIcon}`} />
                                     <div className={styles.inputSection}>
-                                        <p className={styles.inputTitle}>소재</p>
-                                        <input className={styles.inputContext} type="text" placeholder="소재를 입력해주세요 . . ." onChange={(e) => setFabric(e.target.value)} />
+                                        <p className={material ? `${styles.inputBeWritten}` : `${styles.inputTitle}`}>소재</p>
+                                        <input className={styles.inputContext} type="text" placeholder="소재를 입력해주세요" onChange={(e) => setMaterial(e.target.value)} />
                                     </div>
                                 </div>
                                 <div className={styles.inputContainer}>
                                     <FontAwesomeIcon icon={faUserTag} className={`${styles.inputIcon} ${styles.sizeIcon}`} />
                                     <div className={styles.inputSection}>
-                                        <p className={styles.inputTitle}>Size</p>
-                                        <input className={styles.inputContext} type="text" placeholder="사이즈를 입력해주세요 . . ." onChange={(e) => setSize(e.target.value)} />
+                                        <p className={size ? `${styles.inputBeWritten}` : `${styles.inputTitle}`}>Size</p>
+                                        <input className={styles.inputContext} type="text" placeholder="사이즈를 입력해주세요" onChange={(e) => setSize(e.target.value)} />
                                     </div>
                                 </div>
                             </div>
@@ -85,15 +104,15 @@ function ClothesUpdate() {
                                 <div className={styles.inputContainer}>
                                     <FontAwesomeIcon icon={faStore} className={`${styles.inputIcon} ${styles.storeIcon}`} />
                                     <div className={styles.inputSection}>
-                                        <p className={styles.inputTitle}>Brand</p>
-                                        <input className={styles.inputContext} type="text" placeholder="브랜드를 입력해주세요 . . ." onChange={(e) => setBrand(e.target.value)} />
+                                        <p className={brand ? `${styles.inputBeWritten}` : `${styles.inputTitle}`}>Brand</p>
+                                        <input className={styles.inputContext} type="text" placeholder="브랜드를 입력해주세요" onChange={(e) => setBrand(e.target.value)} />
                                     </div>
                                 </div>
                                 <div className={styles.inputContainer}>
                                     <FontAwesomeIcon icon={faShoppingCart} className={`${styles.inputIcon} ${styles.cartIcon}`} />
                                     <div className={styles.inputSection}>
-                                        <p className={styles.inputTitle}>구매 일자</p>
-                                        <input className={styles.inputContext} type="date" placeholder="구매 날짜 입력 . . ." onChange={(e) => setDate(e.target.value)} />
+                                        <p className={date ? `${styles.inputBeWritten}` : `${styles.inputTitle}`}>구매 일자</p>
+                                        <input className={styles.inputContext} type="date" placeholder="구매 날짜 입력" onChange={(e) => setDate(e.target.value)} />
                                     </div>
                                 </div>
                             </div>
