@@ -1,6 +1,6 @@
 <h1 align="center"> 🧦 Personal Closet _ 개인 맞춤형 의류 관리 시스템 🛒 </h2>
 
-👗 사용자가 등록한 의류 및 날짜별 코디를 관리하는 나만의 옷장 <br />
+👗 의류 등록과 날짜별 코디를 기록하는 나만의 옷장 시스템 <br />
 
 ![issue bedge](https://img.shields.io/badge/react-v%2017.0.2-blue)
 ![issue bedge](https://img.shields.io/badge/yarn-v%201.22.10-yellow)<br />
