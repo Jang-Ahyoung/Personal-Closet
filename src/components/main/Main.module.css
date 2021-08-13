@@ -21,6 +21,7 @@
   filter: grayscale(100%);
   transition: 0.7s;
   cursor: pointer;
+  object-fit:cover;
 }
 
 .imgRight {

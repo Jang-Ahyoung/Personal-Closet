@@ -10,11 +10,11 @@ function Main() {
     return (
         <div className={styles.container}>
             <div className={styles.logo}>My Closet</div>
-            <img className={styles.imgLeft} alt="CodiImg" src="img/1.jpg" onClick={() => history.push({ pathname: '/home', state: { type: "closet" } })}></img>
+            <img className={styles.imgLeft} alt="CodiImg" src="img/cloth/clothing-store.jpg" onClick={() => history.push({ pathname: '/home', state: { type: "closet" } })}></img>
             <div className={styles.textLeft} >
                 <FontAwesomeIcon icon={faSortUp} /><span className={styles.text}> My clothes</span>
             </div>
-            <img className={styles.imgRight} alt="CodiImg" src="img/main_gray.jpg" onClick={() => history.push({ pathname: '/home', state: { type: "codi" } })}></img>
+            <img className={styles.imgRight} alt="CodiImg" src="img/ocean.jpg" onClick={() => history.push({ pathname: '/home', state: { type: "codi" } })}></img>
             <div className={styles.textRight} >
                 <FontAwesomeIcon icon={faSortUp} /> <span className={styles.text}> My codi</span>
             </div>
