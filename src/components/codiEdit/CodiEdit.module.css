@@ -1,0 +1,133 @@
+.container {
+  height: 100vh;
+  padding: 40px;
+}
+
+.btnContainer {
+  display: flex;
+  align-items: center;
+}
+.button {
+  font-size: 23px;
+  width: 300px;
+  height: 70px;
+  border: none;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  background-color: rgb(0, 0, 0, 0.01);
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+.button:hover {
+  letter-spacing: 4px;
+}
+.selectedBtn {
+  color: whitesmoke;
+  background-color: #21d4fd;
+  background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+  width: 350px;
+  letter-spacing: 5px;
+}
+
+.boxBorder {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 10px 0;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  height: calc(100vh - 160px);
+}
+.boxSection {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  max-height: calc(100vh - 180px);
+}
+.boxContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+  margin: 20px;
+  margin-right: 5px;
+}
+
+.plusBox {
+  border-top: 2px solid rgba(255, 255, 255, 0.9);
+  border-left: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background: white;
+  cursor: pointer;
+  transition: none;
+}
+.plusBox:hover {
+  color: white;
+}
+.Icon {
+  font-size: 25px;
+}
+.plusText {
+  display: none;
+  background-color: white;
+  padding: 10px;
+}
+.plusBox:hover .plusText {
+  position: absolute;
+  display: flex;
+  color: black;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+.plusBox:hover .Icon {
+  font-size: 30px;
+  display: hidden;
+}
+.boxImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.codiName {
+  position: absolute;
+  font-size: 17px;
+  bottom: 8px;
+  left: 8px;
+  letter-spacing: 1px;
+  color: whitesmoke;
+}
+.editIcon {
+  position: absolute;
+  font-size: 18px;
+  top: 9px;
+  right: 8px;
+  cursor: pointer;
+  color: whitesmoke;
+}
+.closeIcon {
+  position: absolute;
+  font-size: 18px;
+  bottom: 8px;
+  right: 8px;
+  cursor: pointer;
+  color: whitesmoke;
+}
+
+.closeIcon:hover,
+.editIcon:hover {
+  transform: scale(110%);
+}
+
+@media (max-width: 768px) {
+  .boxContainer {
+    margin: 2% 2%;
+    width: 46%;
+  }
+  .button {
+    height: 65px;
+  }
+}
