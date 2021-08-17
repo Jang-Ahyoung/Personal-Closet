@@ -1,0 +1,65 @@
+.container {
+  margin: 20px;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 20px;
+}
+.topDescription {
+  color: lightblue;
+  padding-top: 10px;
+}
+
+.weather {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+}
+
+.temperature {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.weatherIcon {
+  font-size: 80px;
+  color: peachpuff;
+}
+.weatherBottom {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+.weatherDetailNum {
+  margin: 0 20px 0 5px;
+}
+
+.codiContainer {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.codi {
+  position: relative;
+  width: 100%;
+}
+
+.codiDescription {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.codiImage {
+  width: 80vw;
+  height: calc(100vh - 243px);
+  object-fit: cover;
+  border-radius: 15px;
+  margin-right: 20px;
+}
