@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styles from './Home.module.css'
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faPenSquare } from "@fortawesome/free-solid-svg-icons";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/effect-coverflow/effect-coverflow.min.css";
@@ -12,18 +14,24 @@ import SwiperCore, {
     Pagination,
     Navigation
 } from "swiper/core";
+import CodiRecord from '../../components/codiRecord/CodiRecord';
+import CodiRecommend from '../../components/codiRecommend/CodiRecommend';
 
 SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 
 function Home(props) {
+    const history = useHistory();
     const type = props.location.state.type;
     const [windowSize, setWindowSize] = useState();
+    const [openRecommend, setOpenRecommend] = useState(true);
     const handleWindowSize = () => {
         window.addEventListener("resize", () => {
             setWindowSize({ width: window.innerWidth, height: window.innerHeight });
         });
     }
-
+    const handleHistory = (type) => {
+        history.push({ pathname: '/codiEdit', state: { type: type } });
+    }
     useEffect(() => {
         handleWindowSize();
     }, []);
@@ -61,12 +69,12 @@ function Home(props) {
                         <p className={styles.category}> Bottom</p>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img className={styles.swiperImg} alt="slideImg" src="img/cloth/outer2.jpg" />
-                        <p className={styles.category}>Outer</p>
-                    </SwiperSlide>
-                    <SwiperSlide>
                         <img className={styles.swiperImg} alt="slideImg" src="img/cloth/dress.jpg" />
                         <p className={styles.category}> Dress</p>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img className={styles.swiperImg} alt="slideImg" src="img/cloth/outer2.jpg" />
+                        <p className={styles.category}>Outer</p>
                     </SwiperSlide>
                     <SwiperSlide>
                         <img className={styles.swiperImg} alt="slideImg" src="img/cloth/skirt.jpg" />
@@ -86,73 +94,87 @@ function Home(props) {
     )
 
     const Codi = () => (
-        <div className={styles.container}>
-            <div className={styles.title}>
-                <h1>Codi Collection</h1>
-                <p>by Orit Ehanati</p>
-            </div>
-            <div className={styles.imgContainer}>
-                <div>
-                    <img className={styles.img} alt="StyleImg" src="img/cloth/outer2.jpg"></img>
-                    <p className={styles.imgText}>Causal</p>
+
+        openRecommend ?
+            <CodiRecommend setOpenRecommend={setOpenRecommend} />
+            :
+            <div className={styles.container}>
+                <div className={styles.title}>
+                    <h1>Codi Collection</h1>
+                    <p>by Orit Ehanati</p>
                 </div>
-                <div>
-                    <img className={styles.img} alt="StyleImg" src="img/cloth/casual.jpg"></img>
-                    <p className={styles.imgText}>Causal</p>
+                <div className={styles.topSection}>
+                    <p className={styles.codititle}>Codi Type</p>
+                    <FontAwesomeIcon icon={faPenSquare} className={styles.editIcon} onClick={() => handleHistory('type')} />
                 </div>
-                <div>
-                    <img className={styles.img} alt="StyleImg" src="img/cloth/dark.jpg"></img>
-                    <p className={styles.imgText}>Dark</p>
+                <div className={styles.imgContainer}>
+                    <div>
+                        <img className={styles.img} alt="StyleImg" src="img/cloth/outer2.jpg"></img>
+                        <p className={styles.imgText}>Causal</p>
+                    </div>
+                    <div>
+                        <img className={styles.img} alt="StyleImg" src="img/cloth/casual.jpg"></img>
+                        <p className={styles.imgText}>Causal</p>
+                    </div>
+                    <div>
+                        <img className={styles.img} alt="StyleImg" src="img/cloth/dark.jpg"></img>
+                        <p className={styles.imgText}>Dark</p>
+                    </div>
+                    <div>
+                        <img className={styles.img} alt="StyleImg" src="img/cloth/warm.jpg"></img>
+                        <p className={styles.imgText}>Warm</p>
+                    </div>
+                    <div>
+                        <img className={styles.img} alt="StyleImg" src="img/cloth/summerVacation.jpg"></img>
+                        <p className={styles.imgText}>Summer</p>
+                    </div>
                 </div>
-                <div>
-                    <img className={styles.img} alt="StyleImg" src="img/cloth/warm.jpg"></img>
-                    <p className={styles.imgText}>Warm</p>
+                <div className={styles.topSection}>
+                    <p className={styles.codititle}>Codi Style</p>
+                    <FontAwesomeIcon icon={faPenSquare} className={styles.editIcon} onClick={() => handleHistory('style')} />
                 </div>
-                <div>
-                    <img className={styles.img} alt="StyleImg" src="img/cloth/summerVacation.jpg"></img>
-                    <p className={styles.imgText}>Summer</p>
+                <div className={styles.imgContainer}>
+                    <div>
+                        <img className={styles.img} alt="StyleImg" src="img/main.jpg"></img>
+                        <p className={styles.imgText}>Hot</p>
+                    </div>
+                    <div>
+                        <img className={styles.img} alt="StyleImg" src="img/city.jpg"></img>
+                        <p className={styles.imgText}>City</p>
+                    </div>
+                    <div>
+                        <img className={styles.img} alt="StyleImg" src="img/calm.jpg"></img>
+                        <p className={styles.imgText}>Office</p>
+                    </div>
+                    <div>
+                        <img className={styles.img} alt="StyleImg" src="img/pretty.jpg"></img>
+                        <p className={styles.imgText}>Date</p>
+                    </div>
+                    <div>
+                        <img className={styles.img} alt="StyleImg" src="img/ocean.jpg"></img>
+                        <p className={styles.imgText}>Ocean</p>
+                    </div>
+                    <div>
+                        <img className={styles.img} alt="StyleImg" src="img/office.jpg"></img>
+                        <p className={styles.imgText}>Office</p>
+                    </div>
+                    <div>
+                        <img className={styles.img} alt="StyleImg" src="img/cool.jpg"></img>
+                        <p className={styles.imgText}>Cool</p>
+                    </div>
+                    <div>
+                        <img className={styles.img} alt="StyleImg" src="img/cloth/trannings.jpg"></img>
+                        <p className={styles.imgText}>Sport</p>
+                    </div>
+                    <div>
+                        <img className={styles.img} alt="StyleImg" src="img/date.jpg"></img>
+                        <p className={styles.imgText}>Healing</p>
+                    </div>
                 </div>
-            </div>
-            <div className={styles.imgContainer}>
-                <div>
-                    <img className={styles.img} alt="StyleImg" src="img/main.jpg"></img>
-                    <p className={styles.imgText}>Hot</p>
-                </div>
-                <div>
-                    <img className={styles.img} alt="StyleImg" src="img/city.jpg"></img>
-                    <p className={styles.imgText}>City</p>
-                </div>
-                <div>
-                    <img className={styles.img} alt="StyleImg" src="img/calm.jpg"></img>
-                    <p className={styles.imgText}>Office</p>
-                </div>
-                <div>
-                    <img className={styles.img} alt="StyleImg" src="img/pretty.jpg"></img>
-                    <p className={styles.imgText}>Date</p>
-                </div>
-                <div>
-                    <img className={styles.img} alt="StyleImg" src="img/ocean.jpg"></img>
-                    <p className={styles.imgText}>Ocean</p>
-                </div>
-                <div>
-                    <img className={styles.img} alt="StyleImg" src="img/office.jpg"></img>
-                    <p className={styles.imgText}>Office</p>
-                </div>
-                <div>
-                    <img className={styles.img} alt="StyleImg" src="img/cool.jpg"></img>
-                    <p className={styles.imgText}>Cool</p>
-                </div>
-                <div>
-                    <img className={styles.img} alt="StyleImg" src="img/cloth/trannings.jpg"></img>
-                    <p className={styles.imgText}>Sport</p>
-                </div>
-                <div>
-                    <img className={styles.img} alt="StyleImg" src="img/date.jpg"></img>
-                    <p className={styles.imgText}>Healing</p>
-                </div>
-            </div>
-        </div >
+                <CodiRecord />
+            </div >
     )
+
     return type == "closet" ? <Closet /> : <Codi />;
 }
 
