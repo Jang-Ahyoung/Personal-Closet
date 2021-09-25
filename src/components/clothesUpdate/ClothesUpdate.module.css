@@ -30,9 +30,6 @@
 .price:hover {
   border-bottom: 2px solid pink;
 }
-.price {
-  max-width: 120px;
-}
 .titleContext {
   font-size: 18px;
   font-weight: 600;
@@ -40,17 +37,31 @@
   letter-spacing: 1px;
 }
 
+.price {
+  width: 130px;
+  transform: translateY(5px);
+  height: 40px;
+}
 .priceIcon {
   font-size: 20px;
 }
-.priceContext {
+.priceformated {
+  font-size: 12px;
+  width: 100px;
+  height: 25px;
+  transform: translate(0px, -20px);
+  letter-spacing: 2px;
   text-align: center;
-  max-width: 100px;
-  font-size: 18px;
-  font-weight: 700;
+}
+.priceContext {
+  width: 120px;
+  letter-spacing: 3px;
+  height: 30px;
+  transform: translateY(-30px);
+  text-align: center;
 }
 .priceContext::placeholder {
-  color: black;
+  opacity: 100%;
 }
 .middle {
   display: flex;
@@ -112,14 +123,6 @@
   display: flex;
   justify-content: space-between;
 }
-.inputBox {
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
-}
-.inputBox > p {
-  width: 80px;
-}
 
 .date {
   flex-direction: column;
@@ -164,7 +167,6 @@
   height: 30px;
 }
 .submit {
-  /* margin-top: 40px; */
   border: none;
   outline: none;
   width: 50px;
@@ -190,13 +192,11 @@
 .inputContainer {
   display: flex;
   align-items: center;
-  border: 1px solid gray;
-
-  /* box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px; */
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
   border-radius: 15px;
-  padding: 10px;
+  padding: 15px 10px;
   font-size: 14px;
-  margin: 10px 0;
+  margin-bottom: 20px;
   width: 48%;
 }
 
@@ -217,11 +217,19 @@
 .inputSection:hover .inputContext {
   font-size: 13.5px;
 }
+
+.inputBeWritten {
+  font-size: 8px;
+}
+
 .inputContext {
   font-weight: bold;
   background-color: transparent;
   padding-top: 5px;
   max-width: 90%;
+}
+.inputContext:last-child {
+  z-index: 100;
 }
 .storeIcon {
   color: burlywood;
