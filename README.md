@@ -18,9 +18,10 @@
 <img width="95%" src="https://user-images.githubusercontent.com/71692593/139042664-5989f753-7c91-4c62-98ca-f3ccd79001db.gif"/>
 
 ## closet 상세
-![녹화_2021_10_27_18_39_53_482](https://user-images.githubusercontent.com/71692593/139042675-d8ac266a-7041-40e9-a34c-4cb460b81156.gif)
+<img width="69%" src="https://user-images.githubusercontent.com/71692593/139042675-d8ac266a-7041-40e9-a34c-4cb460b81156.gif">
 
 ## codi 메인
+<img width="70%" src="https://user-images.githubusercontent.com/71692593/139260707-4285e93e-7ecd-48a7-8f24-48a575a6faad.gif">
 
 - (추후 예정) 커뮤니티를 통해 개인 코디 기록 및 옷장 공개 가능 
 
