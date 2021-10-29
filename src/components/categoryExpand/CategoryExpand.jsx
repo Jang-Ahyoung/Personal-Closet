@@ -2,8 +2,10 @@ import React from 'react';
 import styles from './CategoryExpand.module.css';
 import { Link } from "react-router-dom";
 import BackArrowHeader from '../backArrowHeader/BackArrowHeader';
+import CLOTHES_DATA from '../../CLOTHES.json';
 
-function CategoryExpand() {
+function CategoryExpand(props) {
+    const category = props.location.state.category;
     return (
         <div className={styles.container}>
             <BackArrowHeader />
@@ -17,19 +19,31 @@ function CategoryExpand() {
             </div>
 
             <div className={styles.produtContainer}>
-                <Link to="/test" style={{ textDecoration: "none" }}>
-                    <div className={styles.produt}>
-                        <div className={styles.photoContainer}>
-                            <img className={styles.produtPhoto} alt="produtImg" src="img/cloth/white_shirt.png"></img>
-                        </div>
-                        <div className={styles.produtDetail}>
-                            <div className={styles.detailTop}>
-                                <p className={styles.name}>Orange point T-shirt</p>
-                                <span className={styles.brandName}>Adidas</span>
-                            </div>
-                        </div>
-                    </div>
-                </Link>
+                {CLOTHES_DATA
+                    .filter((clothes) => {
+                        if (category == 'All') return clothes;
+                        else if (clothes.category.includes(category)) return clothes;
+                    })
+                    .map((data, key) => {
+                        return (
+                            <Link to="/test" style={{ textDecoration: "none" }}>
+                                <div className={styles.produt} key={key}>
+                                    <div className={styles.produt}>
+                                        <div className={styles.photoContainer}>
+                                            <img className={styles.produtPhoto} alt="produtImg" src={data.photo}></img>
+                                        </div>
+                                        <div className={styles.produtDetail}>
+                                            <div className={styles.detailTop}>
+                                                <p className={styles.name}>{data.name}</p>
+                                                <span className={styles.brandName}>{data.brandName}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
+                        )
+                    })
+                }
             </div>
         </div>
     )
